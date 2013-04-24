@@ -13,6 +13,7 @@ namespace Labyrinth
         {
             //useless comment ftw
             Console.WriteLine();
+            Console.WriteLine();
             char[][] myMatrix = labyrinth.Matrix;
             for (int i = 0; i < myMatrix.Length; i++)
             {
