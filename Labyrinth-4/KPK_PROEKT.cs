@@ -44,7 +44,5 @@ namespace Labyrinth
                 processor.HandleInput(input);
             }
         }
-        
-        
     }
 }
