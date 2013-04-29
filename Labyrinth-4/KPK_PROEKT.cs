@@ -11,9 +11,6 @@ namespace Labyrinth
     {
         public static void ShowLabyrinth(LabyrinthMatrix labyrinth)
         {
-            //useless comment ftw
-            //another useless comment to test the commit process
-            //useless comment again!
             Console.WriteLine();
             Console.WriteLine();
             char[][] myMatrix = labyrinth.Matrix;
@@ -23,9 +20,6 @@ namespace Labyrinth
                 {
                     if (i == labyrinth.MyPostionVertical && j == labyrinth.MyPostionHorizontal)
                     {
-
-
-
                         Console.Write("*");
                     }
                     else
@@ -46,9 +40,6 @@ namespace Labyrinth
                 ShowLabyrinth(processor.Matrix);
                 processor.ShowInputMessage();
                 String input;
-
-
-
                 input = Console.ReadLine();
                 processor.HandleInput(input);
             }
