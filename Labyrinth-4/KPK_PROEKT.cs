@@ -12,6 +12,7 @@ namespace Labyrinth
         public static void ShowLabyrinth(LabyrinthMatrix labyrinth)
         {
             //useless comment ftw
+            //another useless comment to test the commit process
             Console.WriteLine();
             Console.WriteLine();
             char[][] myMatrix = labyrinth.Matrix;
