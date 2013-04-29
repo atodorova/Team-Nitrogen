@@ -13,6 +13,7 @@ namespace Labyrinth
         {
             //useless comment ftw
             //another useless comment to test the commit process
+            //useless comment again!
             Console.WriteLine();
             Console.WriteLine();
             char[][] myMatrix = labyrinth.Matrix;
