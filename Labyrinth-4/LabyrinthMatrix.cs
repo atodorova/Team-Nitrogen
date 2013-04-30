@@ -8,7 +8,6 @@ namespace Labyrinth
         private char[][] matrix;
         private int myPostionVertical;
         private int myPostionHorizontal;
-        private Random random = new Random();
 
         public LabyrinthMatrix()
         {
@@ -72,8 +71,9 @@ namespace Labyrinth
 
         private char GetRandomSymbol() 
         {
-            int random1 = random.Next(0, 2);
-            if (random1 == 1)
+            Random randomGenerator = new Random();
+            int randomNumber = randomGenerator.Next(0, 2);
+            if (randomNumber == 1)
             {
                 return 'X';
             }
