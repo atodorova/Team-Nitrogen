@@ -17,143 +17,146 @@ namespace Labyrinth
 
         #region Properties
 
+        public LabyrinthProcesor()
+        {
+            this.scoreboard = new Top5Scoreboard();
+            this.Restart();
+        }
+
         public LabyrinthMatrix Matrix
         {
-            get { return matrix; }
-            set { matrix = value; }
+            get { return this.matrix; }
+            set { this.matrix = value; }
         }
 
         #endregion
 
-        public LabyrinthProcesor()
-        {
-            scoreboard = new Top5Scoreboard();
-            Restart();
-        }
         public void ShowInputMessage()
         {
             Console.Write("Enter your move (L=left, R-right, U=up, D=down): ");
         }
-        public void HandleInput(String input)
-        {
-            String lowerInput = input.ToLower();
 
-            switch(lowerInput)
+        public void HandleInput(string input)
+        {
+            string lowerInput = input.ToLower();
+            switch (lowerInput)
             {
                 case "l":
-                    if (!moveLeft())
+                    if (!this.MoveLeft())
                     {
                         Console.WriteLine("Invalid move!");
                     }
-                break;
 
+                    break;
                 case "r":
-                    if (!moveRight())
+                    if (!this.MoveRight())
                     {
                         Console.WriteLine("Invalid move!");
                     }
-                break;
 
+                    break;
                 case "u":
-                    if (!moveUp())
+                    if (!this.MoveUp())
                     {
                         Console.WriteLine("Invalid move!");
                     }
-                break;
 
+                    break;
                 case "d":
-                    if (!moveDown())
+                    if (!this.MoveDown())
                     {
                         Console.WriteLine("Invalid move!");
                     }
-                break;
 
+                    break;
                 case "top":
-                    scoreboard.ShowScoreboard();
-                break;
-
+                    this.scoreboard.ShowScoreboard();
+                    break;
                 case "restart":
-                    Restart();
-                break;
-
+                    this.Restart();
+                    break;
                 case "exit":
                     Console.WriteLine("Good bye!");
                     System.Environment.Exit(0);
-                break;
-
+                    break;
                 default:
                     Console.WriteLine("Invalid command!");
-                break;
+                    break;
             }
 
-            IsFinished();
+            this.IsFinished();
         }
+
         private void IsFinished()
         {
-            if (matrix.MyPostionHorizontal == 0 ||
-                matrix.MyPostionHorizontal == 6 ||
-                matrix.MyPostionVertical == 0 ||
-                matrix.MyPostionVertical == 6)
+            if (this.matrix.MyPostionHorizontal == 0 ||
+                this.matrix.MyPostionHorizontal == 6 ||
+                this.matrix.MyPostionVertical == 0 ||
+                this.matrix.MyPostionVertical == 6)
             {
-                Console.WriteLine("Congratulations! You escaped in " + moveCount.ToString() + " moves.");
-                scoreboard.HandleScoreboard(moveCount);
-                Restart();
+                Console.WriteLine("Congratulations! You escaped in " + this.moveCount.ToString() + " moves.");
+                this.scoreboard.HandleScoreboard(this.moveCount);
+                this.Restart();
             }
         }
+
         private void Restart()
         {
             Console.WriteLine();
             Console.WriteLine("Welcome to “Labirinth” game. Please try to escape. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
 
             this.matrix = new LabyrinthMatrix();
-            moveCount = 0;
+            this.moveCount = 0;
         }
+
         #region Move Methods
 
-        private bool moveDown()
+        private bool MoveDown()
         {
-            if (!(matrix.MyPostionVertical == 6) &&
-                this.matrix.Matrix[matrix.MyPostionHorizontal][matrix.MyPostionVertical + 1] == '-')
+            if (!(this.matrix.MyPostionVertical == 6) &&
+                this.matrix.Matrix[this.matrix.MyPostionHorizontal][this.matrix.MyPostionVertical + 1] == '-')
             {
-                matrix.MyPostionVertical++;
-                moveCount++;
+                this.matrix.MyPostionVertical++;
+                this.moveCount++;
                 return true;
             }
 
             return false;
         }
 
-        private bool moveUp()
+        private bool MoveUp()
         {
-            if (!(matrix.MyPostionVertical == 0) &&
-                this.matrix.Matrix[matrix.MyPostionHorizontal][matrix.MyPostionVertical - 1] == '-')
+            if (!(this.matrix.MyPostionVertical == 0) &&
+                this.matrix.Matrix[this.matrix.MyPostionHorizontal][this.matrix.MyPostionVertical - 1] == '-')
             {
-                matrix.MyPostionVertical--;
-                moveCount++;
+                this.matrix.MyPostionVertical--;
+                this.moveCount++;
                 return true;
             }
 
             return false;
         }
-        private bool moveRight()
+
+        private bool MoveRight()
         {
-            if (!(matrix.MyPostionHorizontal == 6) &&
-                 this.matrix.Matrix[matrix.MyPostionHorizontal+ 1][matrix.MyPostionVertical] == '-')
+            if (!(this.matrix.MyPostionHorizontal == 6) &&
+                 this.matrix.Matrix[this.matrix.MyPostionHorizontal + 1][this.matrix.MyPostionVertical] == '-')
             {
-                matrix.MyPostionHorizontal++;
-                moveCount++;
+                this.matrix.MyPostionHorizontal++;
+                this.moveCount++;
                 return true;
             }
 
             return false;
         }
-        private bool moveLeft()
+
+        private bool MoveLeft()
         {
-            if (!(matrix.MyPostionHorizontal == 0) &&
-                this.matrix.Matrix[matrix.MyPostionHorizontal - 1][matrix.MyPostionVertical] == '-')
+            if (!(this.matrix.MyPostionHorizontal == 0) &&
+                this.matrix.Matrix[this.matrix.MyPostionHorizontal - 1][this.matrix.MyPostionVertical] == '-')
             {
-                matrix.MyPostionHorizontal--;
-                moveCount++;
+                this.matrix.MyPostionHorizontal--;
+                this.moveCount++;
                 return true;
             }
 
