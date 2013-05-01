@@ -9,72 +9,69 @@ namespace Labyrinth
     {
         #region Fields
 
-        List<Tuple<uint, String>> scoreboard;
+        List<Tuple<uint, string>> scoreboard;
 
         #endregion
 
         public Top5Scoreboard()
         {
-            scoreboard = new List<Tuple<uint, string>>();
+            this.scoreboard = new List<Tuple<uint, string>>();
         }
 
         public void HandleScoreboard(uint moveCount)
         {
-            if (scoreboard.Count() >= 5 && moveCount > scoreboard.Last().Item1)
+            if (this.scoreboard.Count() >= 5 && moveCount > this.scoreboard.Last().Item1)
             {
                 Console.WriteLine("Your not good enough for the scoreboard :)");
                 return;
             }
 
-            if (scoreboard.Count == 0 ||
-                (scoreboard.Count < 5) && scoreboard.Last().Item1 < moveCount)
+            if (this.scoreboard.Count == 0 ||
+                (this.scoreboard.Count < 5) && this.scoreboard.Last().Item1 < moveCount)
             {
-                String nickname = ShowScoreboardInMessage();
-                scoreboard.Add(new Tuple<uint, string>(moveCount, nickname));
+                string nickname = this.ShowScoreboardInMessage();
+                this.scoreboard.Add(new Tuple<uint, string>(moveCount, nickname));
                 this.ShowScoreboard();
                 return;
             }
 
-            for (int i = 0; i < scoreboard.Count(); ++i)
+            for (int i = 0; i < this.scoreboard.Count(); ++i)
             {
-                if (moveCount <= scoreboard[i].Item1)
+                if (moveCount <= this.scoreboard[i].Item1)
                 {
-                    String nickname = ShowScoreboardInMessage();
-                    scoreboard.Insert(i, new Tuple<uint, string>(moveCount, nickname));
-                    if (scoreboard.Count > 5)
+                    string nickname = this.ShowScoreboardInMessage();
+                    this.scoreboard.Insert(i, new Tuple<uint, string>(moveCount, nickname));
+                    if (this.scoreboard.Count > 5)
                     {
-                        scoreboard.Remove(scoreboard.Last());
+                        this.scoreboard.Remove(this.scoreboard.Last());
                     }
+
                     this.ShowScoreboard();
                     break;
                 }
             }
         }
 
-        private String ShowScoreboardInMessage()
-        {
-            Console.Write("Please enter your name for the top scoreboard: ");
-            String nickname = Console.ReadLine();
-            return nickname;
-        }
-
         public void ShowScoreboard()
         {
-            if (scoreboard.Count == 0)
+            if (this.scoreboard.Count == 0)
             {
                 Console.WriteLine("The scoreboard is empty.");
                 return;
             }
 
-            for (int i = 0; i < scoreboard.Count; ++i)
+            for (int i = 0; i < this.scoreboard.Count; ++i)
             {
-                Console.WriteLine(  (i+1).ToString() + 
-                                    ". " +
-                                    scoreboard[i].Item2 +
-                                    " --> " + 
-                                    scoreboard[i].Item1.ToString() +
-                                    " moves.");
+                Console.Write((i + 1).ToString() + ". " + this.scoreboard[i].Item2 + " --> ");
+                Console.WriteLine(this.scoreboard[i].Item1.ToString() + " moves.");
             }
+        }
+
+        private string ShowScoreboardInMessage()
+        {
+            Console.Write("Please enter your name for the top scoreboard: ");
+            string nickname = Console.ReadLine();
+            return nickname;
         }
     }
 }
