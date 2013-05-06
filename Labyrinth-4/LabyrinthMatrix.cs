@@ -5,6 +5,8 @@ namespace Labyrinth
 {
     public class LabyrinthMatrix
     {
+        public const int CENTER_X = 3;
+        public const int CENTER_Y = 3;
         private char[][] matrix;
         private int myPostionVertical;
         private int myPostionHorizontal;
@@ -12,8 +14,8 @@ namespace Labyrinth
 
         public LabyrinthMatrix()
         {
-            this.myPostionHorizontal = 3;
-            this.myPostionVertical = 3;
+            this.myPostionHorizontal = CENTER_X;
+            this.myPostionVertical = CENTER_Y;
             this.matrix = new char[7][];
 
             for (int i = 0; i < this.matrix.Length; i++)
@@ -30,10 +32,6 @@ namespace Labyrinth
             }
 
             this.matrix[3][3] = '-';
-        }
-
-        public LabyrinthMatrix(LabyrinthMatrix l)
-        {
         }
 
         public char[][] Matrix
