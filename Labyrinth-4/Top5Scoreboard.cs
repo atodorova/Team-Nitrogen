@@ -18,6 +18,14 @@ namespace Labyrinth
             this.scoreboard = new List<Tuple<uint, string>>();
         }
 
+        public List<Tuple<uint, string>> Scoreboard
+        {
+            get
+            {
+                return this.scoreboard;
+            }
+        }
+
         public void HandleScoreboard(uint moveCount)
         {
             if (this.scoreboard.Count() >= 5 && moveCount > this.scoreboard.Last().Item1)

@@ -12,6 +12,10 @@ namespace Labyrinth
 
         static void Main(string[] args)
         {
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.BackgroundColor = ConsoleColor.White;
+
+            Console.Clear();
             LabyrinthProcesor processor = new LabyrinthProcesor();
 
             while (true)

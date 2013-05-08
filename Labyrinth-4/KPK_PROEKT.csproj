@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="KPK_PROEKT.cs" />
+    <Compile Include="LabyrinthEngine.cs" />
     <Compile Include="LabyrinthMatrix.cs" />
     <Compile Include="LabyrinthProcesor.cs" />
     <Compile Include="Top5Scoreboard.cs" />

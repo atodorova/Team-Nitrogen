@@ -47,14 +47,24 @@ namespace Labyrinth
                 {
                     if (i == matrix.MyPostionVertical && j == matrix.MyPostionHorizontal)
                     {
+                        Console.ForegroundColor = ConsoleColor.Blue;
                         Console.Write("*");
                     }
                     else
                     {
+                        if (matrix.Matrix[j][i] == '-')
+                        {
+                            Console.ForegroundColor = ConsoleColor.Green;
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                        }
                         Console.Write(matrix.Matrix[j][i]);
                     }
                 }
                 Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Black;
             }
         }
 
