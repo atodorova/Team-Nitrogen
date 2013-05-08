@@ -9,27 +9,6 @@ namespace Labyrinth
 
     class KPK_PROEKT
     {
-        public static void ShowLabyrinth(LabyrinthMatrix labyrinth)
-        {
-            Console.WriteLine();
-            Console.WriteLine();
-            char[][] myMatrix = labyrinth.Matrix;
-            for (int i = 0; i < myMatrix.Length; i++)
-            {
-                for (int j = 0; j < myMatrix[i].Length; j++)
-                {
-                    if (i == labyrinth.MyPostionVertical && j == labyrinth.MyPostionHorizontal)
-                    {
-                        Console.Write("*");
-                    }
-                    else
-                    {
-                        Console.Write(myMatrix[j][i]);
-                    }
-                }
-                Console.WriteLine();
-            }
-        }
 
         static void Main(string[] args)
         {
@@ -37,9 +16,9 @@ namespace Labyrinth
 
             while (true)
             {
-                ShowLabyrinth(processor.Matrix);
+                processor.ShowLabyrinth();
                 processor.ShowInputMessage();
-                String input;
+                string input;
                 input = Console.ReadLine();
                 processor.HandleInput(input);
             }

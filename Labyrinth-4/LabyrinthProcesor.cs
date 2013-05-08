@@ -15,13 +15,13 @@ namespace Labyrinth
 
         #endregion
 
-        #region Properties
-
         public LabyrinthProcesor()
         {
             this.scoreboard = new Top5Scoreboard();
             this.Restart();
         }
+
+        #region Properties
 
         public LabyrinthMatrix Matrix
         {
@@ -34,6 +34,28 @@ namespace Labyrinth
         public void ShowInputMessage()
         {
             Console.Write("Enter your move (L=left, R-right, U=up, D=down): ");
+        }
+
+        public void ShowLabyrinth()
+        {
+            Console.WriteLine();
+            Console.WriteLine();
+
+            for (int i = 0; i < matrix.Matrix.Length; i++)
+            {
+                for (int j = 0; j < matrix.Matrix[i].Length; j++)
+                {
+                    if (i == matrix.MyPostionVertical && j == matrix.MyPostionHorizontal)
+                    {
+                        Console.Write("*");
+                    }
+                    else
+                    {
+                        Console.Write(matrix.Matrix[j][i]);
+                    }
+                }
+                Console.WriteLine();
+            }
         }
 
         public void HandleInput(string input)
@@ -113,8 +135,7 @@ namespace Labyrinth
 
         private bool MoveDown()
         {
-            if (!(this.matrix.MyPostionVertical == 6) &&
-                this.matrix.Matrix[this.matrix.MyPostionHorizontal][this.matrix.MyPostionVertical + 1] == '-')
+            if (this.matrix.MyPostionVertical != 6 && IsAvailable(0, 1))
             {
                 this.matrix.MyPostionVertical++;
                 this.moveCount++;
@@ -126,8 +147,7 @@ namespace Labyrinth
 
         private bool MoveUp()
         {
-            if (!(this.matrix.MyPostionVertical == 0) &&
-                this.matrix.Matrix[this.matrix.MyPostionHorizontal][this.matrix.MyPostionVertical - 1] == '-')
+            if (this.matrix.MyPostionVertical != 0 && IsAvailable(0, -1))
             {
                 this.matrix.MyPostionVertical--;
                 this.moveCount++;
@@ -139,8 +159,7 @@ namespace Labyrinth
 
         private bool MoveRight()
         {
-            if (!(this.matrix.MyPostionHorizontal == 6) &&
-                 this.matrix.Matrix[this.matrix.MyPostionHorizontal + 1][this.matrix.MyPostionVertical] == '-')
+            if (this.matrix.MyPostionHorizontal != 6 && IsAvailable(1, 0))
             {
                 this.matrix.MyPostionHorizontal++;
                 this.moveCount++;
@@ -152,8 +171,7 @@ namespace Labyrinth
 
         private bool MoveLeft()
         {
-            if (!(this.matrix.MyPostionHorizontal == 0) &&
-                this.matrix.Matrix[this.matrix.MyPostionHorizontal - 1][this.matrix.MyPostionVertical] == '-')
+            if (this.matrix.MyPostionHorizontal != 0 && IsAvailable(-1, 0))
             {
                 this.matrix.MyPostionHorizontal--;
                 this.moveCount++;
@@ -161,6 +179,12 @@ namespace Labyrinth
             }
 
             return false;
+        }
+        
+        private bool IsAvailable(int leftAddition, int rightAddition)
+        {
+            return this.matrix.Matrix[this.matrix.MyPostionHorizontal + leftAddition]
+                [this.matrix.MyPostionVertical + rightAddition] == '-';
         }
 
         #endregion
