@@ -12,13 +12,17 @@ namespace Labyrinth
         private LabyrinthMatrix matrix;
         private uint moveCount;
         private Top5Scoreboard scoreboard;
-
+        
         #endregion
 
         public LabyrinthProcesor()
         {
             this.scoreboard = new Top5Scoreboard();
             this.Restart();
+            while (this.matrix.IsCorrect(3, 3, '-') == false)
+            {
+                this.matrix = new LabyrinthMatrix();
+            }
         }
 
         #region Properties
@@ -30,7 +34,7 @@ namespace Labyrinth
         }
 
         #endregion
-
+       
         public void ShowInputMessage()
         {
             Console.Write("Enter your move (L=left, R-right, U=up, D=down): ");
@@ -41,18 +45,18 @@ namespace Labyrinth
             Console.WriteLine();
             Console.WriteLine();
 
-            for (int i = 0; i < matrix.Matrix.Length; i++)
+            for (int i = 0; i < this.matrix.Matrix.Length; i++)
             {
-                for (int j = 0; j < matrix.Matrix[i].Length; j++)
+                for (int j = 0; j < this.matrix.Matrix[i].Length; j++)
                 {
-                    if (i == matrix.MyPostionVertical && j == matrix.MyPostionHorizontal)
+                    if (i == this.matrix.MyPostionVertical && j == this.matrix.MyPostionHorizontal)
                     {
                         Console.ForegroundColor = ConsoleColor.Blue;
                         Console.Write("*");
                     }
                     else
                     {
-                        if (matrix.Matrix[j][i] == '-')
+                        if (this.matrix.Matrix[j][i] == '-')
                         {
                             Console.ForegroundColor = ConsoleColor.Green;
                         }
@@ -60,9 +64,11 @@ namespace Labyrinth
                         {
                             Console.ForegroundColor = ConsoleColor.Red;
                         }
-                        Console.Write(matrix.Matrix[j][i]);
+
+                        Console.Write(this.matrix.Matrix[j][i]);
                     }
                 }
+
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Black;
             }
@@ -145,7 +151,7 @@ namespace Labyrinth
 
         private bool MoveDown()
         {
-            if (this.matrix.MyPostionVertical != 6 && IsAvailable(0, 1))
+            if (this.matrix.MyPostionVertical != 6 && this.IsAvailable(0, 1))
             {
                 this.matrix.MyPostionVertical++;
                 this.moveCount++;
@@ -157,7 +163,7 @@ namespace Labyrinth
 
         private bool MoveUp()
         {
-            if (this.matrix.MyPostionVertical != 0 && IsAvailable(0, -1))
+            if (this.matrix.MyPostionVertical != 0 && this.IsAvailable(0, -1))
             {
                 this.matrix.MyPostionVertical--;
                 this.moveCount++;
@@ -169,7 +175,7 @@ namespace Labyrinth
 
         private bool MoveRight()
         {
-            if (this.matrix.MyPostionHorizontal != 6 && IsAvailable(1, 0))
+            if (this.matrix.MyPostionHorizontal != 6 && this.IsAvailable(1, 0))
             {
                 this.matrix.MyPostionHorizontal++;
                 this.moveCount++;
@@ -181,7 +187,7 @@ namespace Labyrinth
 
         private bool MoveLeft()
         {
-            if (this.matrix.MyPostionHorizontal != 0 && IsAvailable(-1, 0))
+            if (this.matrix.MyPostionHorizontal != 0 && this.IsAvailable(-1, 0))
             {
                 this.matrix.MyPostionHorizontal--;
                 this.moveCount++;

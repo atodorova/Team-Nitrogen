@@ -11,6 +11,7 @@ namespace Labyrinth
         private int myPostionVertical;
         private int myPostionHorizontal;
         private Random randomGenerator = new Random();
+        private bool[,] checkCell = new bool[7, 7];
 
         public LabyrinthMatrix()
         {
@@ -65,6 +66,30 @@ namespace Labyrinth
             set
             {
                 this.myPostionVertical = value;
+            }
+        }
+
+        public bool IsCorrect(int row, int col, char symbol)
+        {
+            if (row < 0 || col < 0 || row >= this.matrix.Length || col >= this.matrix[1].Length)
+            {
+                return true;
+            }
+
+            if (this.checkCell[row, col] == true)
+            {
+                return false;
+            }
+
+            if (this.matrix[row][col] == symbol)
+            {
+                this.checkCell[row, col] = true;
+                return this.IsCorrect(row - 1, col, symbol) || this.IsCorrect(row, col - 1, symbol) || this.IsCorrect(row, col + 1, symbol)
+                    || this.IsCorrect(row + 1, col, symbol);
+            }
+            else
+            {
+                return false;
             }
         }
 
