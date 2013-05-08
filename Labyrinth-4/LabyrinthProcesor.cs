@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Labyrinth
 {
@@ -47,6 +45,7 @@ namespace Labyrinth
 
             for (int i = 0; i < this.matrix.Matrix.Length; i++)
             {
+                Console.Write("\t");
                 for (int j = 0; j < this.matrix.Matrix[i].Length; j++)
                 {
                     if (i == this.matrix.MyPostionVertical && j == this.matrix.MyPostionHorizontal)
@@ -72,6 +71,7 @@ namespace Labyrinth
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Black;
             }
+            Console.WriteLine();
         }
 
         public void HandleInput(string input)
