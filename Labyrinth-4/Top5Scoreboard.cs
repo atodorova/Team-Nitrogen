@@ -9,7 +9,7 @@ namespace Labyrinth
     {
         #region Fields
 
-        List<Tuple<uint, string>> scoreboard;
+        readonly List<Tuple<uint, string>> scoreboard;
 
         #endregion
 
@@ -27,9 +27,10 @@ namespace Labyrinth
             }
 
             if (this.scoreboard.Count == 0 ||
-                (this.scoreboard.Count < 5) && this.scoreboard.Last().Item1 < moveCount)
+                (this.scoreboard.Count < 5 && this.scoreboard.Last().Item1 < moveCount))
             {
-                string nickname = this.ShowScoreboardInMessage();
+                Console.Write("Please enter your name for the top scoreboard: ");
+                string nickname = Console.ReadLine();
                 this.scoreboard.Add(new Tuple<uint, string>(moveCount, nickname));
                 this.ShowScoreboard();
                 return;
@@ -39,7 +40,8 @@ namespace Labyrinth
             {
                 if (moveCount <= this.scoreboard[i].Item1)
                 {
-                    string nickname = this.ShowScoreboardInMessage();
+                    Console.Write("Please enter your name for the top scoreboard: ");
+                    string nickname = Console.ReadLine();
                     this.scoreboard.Insert(i, new Tuple<uint, string>(moveCount, nickname));
                     if (this.scoreboard.Count > 5)
                     {
@@ -65,13 +67,6 @@ namespace Labyrinth
                 Console.Write((i + 1).ToString() + ". " + this.scoreboard[i].Item2 + " --> ");
                 Console.WriteLine(this.scoreboard[i].Item1.ToString() + " moves.");
             }
-        }
-
-        private string ShowScoreboardInMessage()
-        {
-            Console.Write("Please enter your name for the top scoreboard: ");
-            string nickname = Console.ReadLine();
-            return nickname;
         }
     }
 }
