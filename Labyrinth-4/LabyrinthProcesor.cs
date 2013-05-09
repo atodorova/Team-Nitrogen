@@ -7,9 +7,9 @@ namespace Labyrinth
     {
         #region Fields
 
+        private readonly Top5Scoreboard scoreboard;
         private LabyrinthMatrix matrix;
         private uint moveCount;
-        private Top5Scoreboard scoreboard;
         
         #endregion
 
@@ -17,7 +17,8 @@ namespace Labyrinth
         {
             this.scoreboard = new Top5Scoreboard();
             this.Restart();
-            while (this.matrix.IsCorrect(3, 3, '-') == false)
+            this.matrix = new LabyrinthMatrix();
+            while (this.matrix.IsCorrect(this.matrix.MyPostionHorizontal, this.matrix.MyPostionVertical) == false)
             {
                 this.matrix = new LabyrinthMatrix();
             }
@@ -71,6 +72,7 @@ namespace Labyrinth
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Black;
             }
+
             Console.WriteLine();
         }
 

@@ -1,38 +1,29 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
 
 namespace Labyrinth
 {
     public class LabyrinthMatrix
     {
-        public const int CENTER_X = 3;
-        public const int CENTER_Y = 3;
+        public const int CenterX = 3;
+        public const int CenterY = 3;
+        public const int MatrixSize = 7;
+        public const char EmptyCell = '-';
+        public const char WallCell = 'X';
+        private readonly bool[,] checkCell;
+        private readonly Random randomGenerator;
         private char[][] matrix;
         private int myPostionVertical;
         private int myPostionHorizontal;
-        private Random randomGenerator = new Random();
-        private bool[,] checkCell = new bool[7, 7];
-
+        
         public LabyrinthMatrix()
         {
-            this.myPostionHorizontal = CENTER_X;
-            this.myPostionVertical = CENTER_Y;
-            this.matrix = new char[7][];
-
-            for (int i = 0; i < this.matrix.Length; i++)
-            {
-                this.matrix[i] = new char[7];
-            }
-
-            for (int i = 0; i < this.matrix.Length; i++)
-            {
-                for (int j = 0; j < this.matrix[i].Length; j++)
-                {
-                    this.matrix[i][j] = this.GetRandomSymbol();
-                }
-            }
-
-            this.matrix[3][3] = '-';
+            this.randomGenerator = new Random();
+            this.checkCell = new bool[MatrixSize, MatrixSize];
+            this.myPostionHorizontal = CenterX;
+            this.myPostionVertical = CenterY;
+            this.GenerateMatrix();
         }
 
         public char[][] Matrix
@@ -69,9 +60,9 @@ namespace Labyrinth
             }
         }
 
-        public bool IsCorrect(int row, int col, char symbol)
+        public bool IsCorrect(int row, int col)
         {
-            if (row < 0 || col < 0 || row >= this.matrix.Length || col >= this.matrix[1].Length)
+            if (row < 0 || col < 0 || row >= MatrixSize || col >= MatrixSize)
             {
                 return true;
             }
@@ -81,11 +72,11 @@ namespace Labyrinth
                 return false;
             }
 
-            if (this.matrix[row][col] == symbol)
+            if (this.matrix[row][col] == EmptyCell)
             {
                 this.checkCell[row, col] = true;
-                return this.IsCorrect(row - 1, col, symbol) || this.IsCorrect(row, col - 1, symbol) || this.IsCorrect(row, col + 1, symbol)
-                    || this.IsCorrect(row + 1, col, symbol);
+                return this.IsCorrect(row - 1, col) || this.IsCorrect(row, col - 1) || this.IsCorrect(row, col + 1)
+                    || this.IsCorrect(row + 1, col);
             }
             else
             {
@@ -93,16 +84,35 @@ namespace Labyrinth
             }
         }
 
+        private void GenerateMatrix()
+        {
+            this.matrix = new char[MatrixSize][];
+            for (int i = 0; i < MatrixSize; i++)
+            {
+                this.matrix[i] = new char[MatrixSize];
+            }
+
+            for (int i = 0; i < MatrixSize; i++)
+            {
+                for (int j = 0; j < MatrixSize; j++)
+                {
+                    this.matrix[i][j] = this.GetRandomSymbol();
+                }
+            }
+
+            this.matrix[CenterX][CenterY] = EmptyCell;
+        }
+
         private char GetRandomSymbol() 
         {
             int randomNumber = this.randomGenerator.Next(0, 2);
             if (randomNumber == 1)
             {
-                return 'X';
+                return WallCell;
             }
             else
             {
-                return '-';
+                return EmptyCell;
             }
         } 
     }
