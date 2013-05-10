@@ -44,10 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LabyrinthEngine.cs" />
+    <Compile Include="LabyrinthGame.cs" />
+    <Compile Include="LabyrinthInputOutput.cs" />
     <Compile Include="LabyrinthMatrix.cs" />
-    <Compile Include="LabyrinthProcesor.cs" />
-    <Compile Include="Top5Scoreboard.cs" />
+    <Compile Include="LabyrinthEngine.cs" />
+    <Compile Include="Scoreboard.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
