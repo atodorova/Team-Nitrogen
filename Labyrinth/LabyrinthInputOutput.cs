@@ -61,7 +61,7 @@ namespace Labyrinth
                 Console.Write("\t");
                 for (int j = 0; j < matrix.Matrix[i].Length; j++)
                 {
-                    if (i == matrix.MyPostionVertical && j == matrix.MyPostionHorizontal)
+                    if (i == matrix.MyPositionVertical && j == matrix.MyPositionHorizontal)
                     {
                         Console.ForegroundColor = ConsoleColor.Blue;
                         Console.Write("*");

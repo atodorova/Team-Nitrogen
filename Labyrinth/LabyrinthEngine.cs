@@ -18,7 +18,7 @@ namespace Labyrinth
             this.scoreboard = new Scoreboard();
             this.Restart();
             this.matrix = new LabyrinthMatrix();
-            while (this.matrix.IsCorrect(this.matrix.MyPostionHorizontal, this.matrix.MyPostionVertical) == false)
+            while (this.matrix.IsCorrect(this.matrix.MyPositionHorizontal, this.matrix.MyPositionVertical) == false)
             {
                 this.matrix = new LabyrinthMatrix();
             }
@@ -86,10 +86,10 @@ namespace Labyrinth
 
         private void IsFinished()
         {
-            if (this.matrix.MyPostionHorizontal == 0 ||
-                this.matrix.MyPostionHorizontal == 6 ||
-                this.matrix.MyPostionVertical == 0 ||
-                this.matrix.MyPostionVertical == 6)
+            if (this.matrix.MyPositionHorizontal == 0 ||
+                this.matrix.MyPositionHorizontal == 6 ||
+                this.matrix.MyPositionVertical == 0 ||
+                this.matrix.MyPositionVertical == 6)
             {
                 LabyrinthInputOutput.PrintVictoryMessage(this.moveCount.ToString());
                 this.scoreboard.HandleScoreboard(this.moveCount);
@@ -108,9 +108,9 @@ namespace Labyrinth
 
         private bool MoveDown()
         {
-            if (this.matrix.MyPostionVertical != 6 && this.IsAvailable(0, 1))
+            if (this.matrix.MyPositionVertical != 6 && this.IsAvailable(0, 1))
             {
-                this.matrix.MyPostionVertical++;
+                this.matrix.MyPositionVertical++;
                 this.moveCount++;
                 return true;
             }
@@ -120,9 +120,9 @@ namespace Labyrinth
 
         private bool MoveUp()
         {
-            if (this.matrix.MyPostionVertical != 0 && this.IsAvailable(0, -1))
+            if (this.matrix.MyPositionVertical != 0 && this.IsAvailable(0, -1))
             {
-                this.matrix.MyPostionVertical--;
+                this.matrix.MyPositionVertical--;
                 this.moveCount++;
                 return true;
             }
@@ -132,9 +132,9 @@ namespace Labyrinth
 
         private bool MoveRight()
         {
-            if (this.matrix.MyPostionHorizontal != 6 && this.IsAvailable(1, 0))
+            if (this.matrix.MyPositionHorizontal != 6 && this.IsAvailable(1, 0))
             {
-                this.matrix.MyPostionHorizontal++;
+                this.matrix.MyPositionHorizontal++;
                 this.moveCount++;
                 return true;
             }
@@ -144,9 +144,9 @@ namespace Labyrinth
 
         private bool MoveLeft()
         {
-            if (this.matrix.MyPostionHorizontal != 0 && this.IsAvailable(-1, 0))
+            if (this.matrix.MyPositionHorizontal != 0 && this.IsAvailable(-1, 0))
             {
-                this.matrix.MyPostionHorizontal--;
+                this.matrix.MyPositionHorizontal--;
                 this.moveCount++;
                 return true;
             }
@@ -156,8 +156,8 @@ namespace Labyrinth
         
         private bool IsAvailable(int leftAddition, int rightAddition)
         {
-            return this.matrix.Matrix[this.matrix.MyPostionHorizontal + leftAddition]
-                [this.matrix.MyPostionVertical + rightAddition] == LabyrinthMatrix.EmptyCell;
+            return this.matrix.Matrix[this.matrix.MyPositionHorizontal + leftAddition]
+                [this.matrix.MyPositionVertical + rightAddition] == LabyrinthMatrix.EmptyCell;
         }
 
         #endregion

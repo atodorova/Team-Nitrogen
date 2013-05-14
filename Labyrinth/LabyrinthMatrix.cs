@@ -21,8 +21,8 @@ namespace Labyrinth
         {
             this.randomGenerator = new Random();
             this.checkCell = new bool[MatrixSize, MatrixSize];
-            this.myPostionHorizontal = CenterX;
-            this.myPostionVertical = CenterY;
+            this.MyPositionHorizontal = CenterX;
+            this.MyPositionVertical = CenterY;
             this.GenerateMatrix();
         }
 
@@ -34,7 +34,7 @@ namespace Labyrinth
             }
         }
 
-        public int MyPostionHorizontal
+        public int MyPositionHorizontal
         {
             get
             {
@@ -43,11 +43,15 @@ namespace Labyrinth
 
             set
             {
+                if (value < 0)
+                {
+                    throw new ArgumentOutOfRangeException("myPositionHorizontal", "The position cannot be a negative number");
+                }
                 this.myPostionHorizontal = value;
             }
         }
 
-        public int MyPostionVertical
+        public int MyPositionVertical
         {
             get
             {
@@ -56,6 +60,10 @@ namespace Labyrinth
 
             set
             {
+                if (value < 0)
+                {
+                    throw new ArgumentOutOfRangeException("myPositionVertical", "The position cannot be a negative number");
+                }
                 this.myPostionVertical = value;
             }
         }
