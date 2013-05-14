@@ -11,7 +11,7 @@ namespace Labyrinth
         public const int MatrixSize = 7;
         public const char EmptyCell = '-';
         public const char WallCell = 'X';
-        private readonly bool[,] checkCell;
+        private readonly bool[,] checkedCells;
         private readonly Random randomGenerator;
         private char[][] matrix;
         private int myPostionVertical;
@@ -20,7 +20,7 @@ namespace Labyrinth
         public LabyrinthMatrix()
         {
             this.randomGenerator = new Random();
-            this.checkCell = new bool[MatrixSize, MatrixSize];
+            this.checkedCells = new bool[MatrixSize, MatrixSize];
             this.MyPositionHorizontal = CenterX;
             this.MyPositionVertical = CenterY;
             this.GenerateMatrix();
@@ -75,22 +75,16 @@ namespace Labyrinth
                 return true;
             }
 
-            if (this.checkCell[row, col] == true)
+            if ((this.checkedCells[row, col]) || this.matrix[row][col] != EmptyCell)
             {
                 return false;
             }
 
-            if (this.matrix[row][col] == EmptyCell)
-            {
-                this.checkCell[row, col] = true;
-                return this.IsCorrect(row - 1, col) || this.IsCorrect(row, col - 1) || this.IsCorrect(row, col + 1)
-                    || this.IsCorrect(row + 1, col);
-            }
-            else
-            {
-                return false;
-            }
-        }
+            this.checkedCells[row, col] = true;
+            return this.IsCorrect(row - 1, col) || this.IsCorrect(row, col - 1) || this.IsCorrect(row, col + 1)
+                || this.IsCorrect(row + 1, col);
+        }    
+                               
 
         private void GenerateMatrix()
         {
