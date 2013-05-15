@@ -56,6 +56,12 @@
     <Compile Include="LabyrinthInputOutputTest.cs" />
     <Compile Include="LabyrinthMatrixTest.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Labyrinth\Labyrinth.csproj">
+      <Project>{41980eca-0a47-4575-85c5-2b2415716906}</Project>
+      <Name>Labyrinth</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
