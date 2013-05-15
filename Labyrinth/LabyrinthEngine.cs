@@ -13,6 +13,9 @@ namespace Labyrinth
         
         #endregion
 
+        /// <summary>
+        /// Constructor, used for initializing the game's scoreboard and the matrix/labyrinth.
+        /// </summary>
         public LabyrinthEngine()
         {
             this.scoreboard = new Scoreboard();
@@ -33,7 +36,10 @@ namespace Labyrinth
         }
 
         #endregion
-
+        /// <summary>
+        /// Handles all possible correct inputs. If input is not correct throws exception.
+        /// </summary>
+        /// <param name="input">Command, used for controling the game.</param>
         public void HandleInput(string input)
         {
             string lowerInput = input.ToLower();
