@@ -2,7 +2,7 @@
 using System.Linq;
 
 namespace Labyrinth
-{
+{   
     public class LabyrinthEngine
     {
         #region Fields
