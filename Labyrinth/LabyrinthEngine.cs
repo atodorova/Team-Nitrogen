@@ -21,7 +21,7 @@ namespace Labyrinth
             this.scoreboard = new Scoreboard();
             this.Restart();
             this.matrix = new LabyrinthMatrix();
-            while (this.matrix.IsCorrect(this.matrix.MyPositionHorizontal, this.matrix.MyPositionVertical) == false)
+            while (!this.matrix.IsCorrect())
             {
                 this.matrix = new LabyrinthMatrix();
             }

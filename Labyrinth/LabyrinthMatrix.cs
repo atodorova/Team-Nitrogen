@@ -68,7 +68,8 @@ namespace Labyrinth
             }
         }
 
-        public bool IsCorrect(int row, int col)
+        //If no starting cell is provided it gets the default one
+        public bool IsCorrect(int row = CenterX, int col = CenterY)
         {
             if (row < 0 || col < 0 || row >= MatrixSize || col >= MatrixSize)
             {
