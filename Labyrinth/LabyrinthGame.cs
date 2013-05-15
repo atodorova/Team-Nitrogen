@@ -12,10 +12,10 @@ namespace Labyrinth
             Console.ForegroundColor = ConsoleColor.Black;
             Console.BackgroundColor = ConsoleColor.White;
             Console.Clear();
-            LabyrinthEngine processor = new LabyrinthEngine();
+            LabyrinthEngine engine = new LabyrinthEngine();
             while (true)
             {
-                LabyrinthInputOutput.PrintLabyrinthMatrix(processor.Matrix);
+                LabyrinthInputOutput.PrintLabyrinthMatrix(engine.Matrix);
                 string input;
                 bool isCorrectCommand = false;
                 while (!isCorrectCommand)
@@ -24,7 +24,7 @@ namespace Labyrinth
                     {
                         LabyrinthInputOutput.PrintInputMessage();
                         input = Console.ReadLine();
-                        processor.HandleInput(input);
+                        engine.HandleInput(input);
                         isCorrectCommand = true;
                     }
                     catch (ArgumentOutOfRangeException)
