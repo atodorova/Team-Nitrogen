@@ -1,4 +1,5 @@
 ﻿using System;
+using Labyrinth;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LabyrinthTests
@@ -11,7 +12,7 @@ namespace LabyrinthTests
         public void HandleInput_IsValedCommandW()
         {
             string input = "w";
-            Labyrinth.LabyrinthEngine engine = new Labyrinth.LabyrinthEngine();
+            LabyrinthEngine engine = new LabyrinthEngine();
             engine.HandleInput(input);
         }
 
@@ -20,7 +21,7 @@ namespace LabyrinthTests
         public void HandleInput_IsValedCommandLR()
         {
             string input = "lr";
-            Labyrinth.LabyrinthEngine engine = new Labyrinth.LabyrinthEngine();
+            LabyrinthEngine engine = new LabyrinthEngine();
             engine.HandleInput(input);
         }
 
@@ -29,7 +30,7 @@ namespace LabyrinthTests
         public void HandleInput_IsValedCommandStart()
         {
             string input = "start";
-            Labyrinth.LabyrinthEngine engine = new Labyrinth.LabyrinthEngine();
+            LabyrinthEngine engine = new LabyrinthEngine();
             engine.HandleInput(input);
         }
 
@@ -38,7 +39,7 @@ namespace LabyrinthTests
         public void HandleInput_IsValedCommandAt()
         {
             string input = "@";
-            Labyrinth.LabyrinthEngine engine = new Labyrinth.LabyrinthEngine();
+            LabyrinthEngine engine = new LabyrinthEngine();
             engine.HandleInput(input);
         }
     }
