@@ -14,39 +14,39 @@ namespace Labyrinth
     /// </summary>
     public static class LabyrinthInputOutput
     {
-        public static void PrintWelcomeMessage()
+        public static string PrintWelcomeMessage()
         {
-            Console.WriteLine("\nWelcome to “Labirinth” game. Please try to escape. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
+            return "\nWelcome to “Labirinth” game. Please try to escape. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.";
         }
 
-        public static void PrintInvalidMoveMessage()
+        public static string PrintInvalidMoveMessage()
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Invalid move! You cannot move in that direction!");
-            Console.ForegroundColor = ConsoleColor.Black;
+            
+            return "Invalid move! You cannot move in that direction!";
+            
         }
 
-        public static void PrintVictoryMessage(string moveCount)
+        public static string PrintVictoryMessage(string moveCount)
         {
-            Console.WriteLine("Congratulations! You escaped in " + moveCount + " moves.");
+            return "Congratulations! You escaped in " + moveCount + " moves.";
         }
 
-        public static void PrintExitMessage()
+        public static string PrintExitMessage()
         {
-            Console.WriteLine("Good Bye!");
+            return "Good Bye!";
         }
 
-        public static void PrintInputMessage()
+        public static string PrintInputMessage()
         {
-            Console.Write("Enter your move (L=left, R-right, U=up, D=down): ");
+            return "Enter your move (L=left, R-right, U=up, D=down): ";
         }
 
-        public static void PrintInvalidCommandMessage()
+        public static string PrintInvalidCommandMessage()
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("You entered invalid command! Please, choose one of the below:");
-            Console.WriteLine("R, L, U, D, Restart, Top, Exit");
-            Console.ForegroundColor = ConsoleColor.Black;
+            
+            return "You entered invalid command! Please, choose one of the below:\n" + 
+            "R, L, U, D, Restart, Top, Exit";
+            
         }
 
         /// <summary>

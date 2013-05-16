@@ -42,7 +42,7 @@ namespace Labyrinth
         /// Handles all possible correct inputs. If input is not correct throws exception.
         /// </summary>
         /// <param name="input">Command, used for controling the game.</param>
-        public void HandleInput(string input)
+        public string HandleInput(string input)
         {
             string lowerInput = input.ToLower();
             switch (lowerInput)
@@ -50,14 +50,14 @@ namespace Labyrinth
                 case "l":
                     if (!this.MoveLeft())
                     {
-                        LabyrinthInputOutput.PrintInvalidMoveMessage();
+                         LabyrinthInputOutput.PrintInvalidMoveMessage();
                     }
 
                     break;
                 case "r":
                     if (!this.MoveRight())
                     {
-                        LabyrinthInputOutput.PrintInvalidMoveMessage();
+                         LabyrinthInputOutput.PrintInvalidMoveMessage();
                     }
 
                     break;
