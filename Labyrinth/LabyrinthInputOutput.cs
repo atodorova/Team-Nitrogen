@@ -6,10 +6,8 @@
 
 namespace Labyrinth
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
+    using System;    
+    using System.Linq;    
 
     /// <summary>
     /// TODO: Update summary.
@@ -51,6 +49,9 @@ namespace Labyrinth
             Console.ForegroundColor = ConsoleColor.Black;
         }
 
+        /// <summary>
+        /// Prints the generated game field to the console, using build-in console settings
+        /// </summary>        
         public static void PrintLabyrinthMatrix(LabyrinthMatrix matrix)
         { 
             Console.WriteLine();

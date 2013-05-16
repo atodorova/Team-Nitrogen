@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Threading;
 
 namespace Labyrinth
 {
@@ -68,7 +67,9 @@ namespace Labyrinth
             }
         }
 
-        //If no starting cell is provided it gets the default one
+        /// <summary>
+        /// Checks the newly generated matrix for validity (i.e. if there is a possible exit). Work starts from the center position.
+        /// </summary>        
         public bool IsCorrect(int row = CenterX, int col = CenterY)
         {
             if (row < 0 || col < 0 || row >= MatrixSize || col >= MatrixSize)

@@ -38,6 +38,7 @@ namespace Labyrinth
         }
 
         #endregion
+
         /// <summary>
         /// Handles all possible correct inputs. If input is not correct throws exception.
         /// </summary>

@@ -23,6 +23,10 @@ namespace Labyrinth
             }
         }
 
+        /// <summary>
+        /// Adds final scores to the coreboard after each successfull game and prints the results to the console
+        /// </summary>
+        /// <param name="moveCount">total moves used to finish the game</param>
         public void HandleScoreboard(uint moveCount)
         {
             if (this.scoreboard.Count() >= TopPlayersToShow && moveCount > this.scoreboard.Last().Item1)
