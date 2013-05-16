@@ -8,9 +8,37 @@ namespace LabyrinthTests
     public class LabyrinthInputOutputTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void PrintExitMessage()
         {
+            var currentConsoleOut = Console.Out;
 
+            string message = "Good Bye!";
+
+            using (var consoleOutput = new ConsoleOutput())
+            {
+                LabyrinthInputOutput.PrintExitMessage();
+
+                Assert.AreEqual(message, consoleOutput.GetOuput());
+            }
+
+            Assert.AreEqual(currentConsoleOut, Console.Out);
+        }
+
+        [TestMethod]
+        public void PrintInvalidMoveMessage()
+        {
+            var currentConsoleOut = Console.Out;
+
+            string message = "Invalid move! You cannot move in that direction!\n";
+
+            using (var consoleOutput = new ConsoleOutput())
+            {
+                LabyrinthInputOutput.PrintInvalidMoveMessage();
+
+                Assert.AreEqual(message, consoleOutput.GetOuput());
+            }
+
+            Assert.AreEqual(currentConsoleOut, Console.Out);
         }
     }
 }
