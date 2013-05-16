@@ -44,13 +44,14 @@ namespace LabyrinthTests
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void HandleInput_IsValidCommandExit()
         {
             var currentConsoleOut = Console.Out;
 
             LabyrinthEngine engine = new LabyrinthEngine();
 
-            string message = "Good Bye!";
+            string message = "Good Bye!\r\n";
 
             using (var consoleOutput = new ConsoleOutput())
             {

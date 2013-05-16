@@ -14,38 +14,38 @@ namespace Labyrinth
     /// </summary>
     public static class LabyrinthInputOutput
     {
-        public static string PrintWelcomeMessage()
+        public static void PrintWelcomeMessage()
         {
-            return "\nWelcome to “Labirinth” game. Please try to escape. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.";
+            Console.WriteLine("\nWelcome to “Labirinth” game. Please try to escape. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
         }
 
-        public static string PrintInvalidMoveMessage()
+        public static void PrintInvalidMoveMessage()
         {
+
+            Console.WriteLine("Invalid move! You cannot move in that direction!");
             
-            return "Invalid move! You cannot move in that direction!";
-            
         }
 
-        public static string PrintVictoryMessage(string moveCount)
+        public static void PrintVictoryMessage(string moveCount)
         {
-            return "Congratulations! You escaped in " + moveCount + " moves.";
+            Console.WriteLine("Congratulations! You escaped in " + moveCount + " moves.");
         }
 
-        public static string PrintExitMessage()
+        public static void PrintExitMessage()
         {
-            return "Good Bye!";
+            Console.WriteLine("Good Bye!");
         }
 
-        public static string PrintInputMessage()
+        public static void PrintInputMessage()
         {
-            return "Enter your move (L=left, R-right, U=up, D=down): ";
+            Console.WriteLine("Enter your move (L=left, R-right, U=up, D=down): ");
         }
 
-        public static string PrintInvalidCommandMessage()
+        public static void PrintInvalidCommandMessage()
         {
-            
-            return "You entered invalid command! Please, choose one of the below:\n" + 
-            "R, L, U, D, Restart, Top, Exit";
+
+            Console.WriteLine("You entered invalid command! Please, choose one of the below:\n" + 
+            "R, L, U, D, Restart, Top, Exit");
             
         }
 

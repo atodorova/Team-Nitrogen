@@ -42,7 +42,7 @@ namespace Labyrinth
         /// Handles all possible correct inputs. If input is not correct throws exception.
         /// </summary>
         /// <param name="input">Command, used for controling the game.</param>
-        public string HandleInput(string input)
+        public void HandleInput(string input)
         {
             string lowerInput = input.ToLower();
             switch (lowerInput)

@@ -12,7 +12,7 @@ namespace LabyrinthTests
         {
             var currentConsoleOut = Console.Out;
 
-            string message = "Good Bye!";
+            string message = "Good Bye!\r\n";
 
             using (var consoleOutput = new ConsoleOutput())
             {
@@ -29,7 +29,7 @@ namespace LabyrinthTests
         {
             var currentConsoleOut = Console.Out;
 
-            string message = "Invalid move! You cannot move in that direction!\n";
+            string message = "Invalid move! You cannot move in that direction!\r\n";
 
             using (var consoleOutput = new ConsoleOutput())
             {
