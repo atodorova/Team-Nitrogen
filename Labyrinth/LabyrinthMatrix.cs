@@ -14,8 +14,8 @@ namespace Labyrinth
         private readonly bool[,] checkedCells;
         private readonly Random randomGenerator;
         private char[][] matrix;
-        private int myPostionVertical;
-        private int myPostionHorizontal;
+        private int myPositionVertical;
+        private int myPositionHorizontal;
         
         public LabyrinthMatrix()
         {
@@ -38,7 +38,7 @@ namespace Labyrinth
         {
             get
             {
-                return this.myPostionHorizontal;
+                return this.myPositionHorizontal;
             }
 
             set
@@ -47,7 +47,7 @@ namespace Labyrinth
                 {
                     throw new ArgumentOutOfRangeException("myPositionHorizontal", "The position cannot be a negative number");
                 }
-                this.myPostionHorizontal = value;
+                this.myPositionHorizontal = value;
             }
         }
 
@@ -55,7 +55,7 @@ namespace Labyrinth
         {
             get
             {
-                return this.myPostionVertical;
+                return this.myPositionVertical;
             }
 
             set
@@ -64,7 +64,7 @@ namespace Labyrinth
                 {
                     throw new ArgumentOutOfRangeException("myPositionVertical", "The position cannot be a negative number");
                 }
-                this.myPostionVertical = value;
+                this.myPositionVertical = value;
             }
         }
 

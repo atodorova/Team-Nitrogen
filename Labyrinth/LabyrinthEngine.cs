@@ -8,8 +8,10 @@ namespace Labyrinth
         #region Fields
 
         private readonly Scoreboard scoreboard;
+        private readonly int MatrixMaxPosition;
         private LabyrinthMatrix matrix;
         private uint moveCount;
+        
         
         #endregion
 
@@ -25,14 +27,14 @@ namespace Labyrinth
             {
                 this.matrix = new LabyrinthMatrix();
             }
+            this.MatrixMaxPosition = LabyrinthMatrix.MatrixSize - 1;
         }
 
         #region Properties
 
         public LabyrinthMatrix Matrix
         {
-            get { return this.matrix; }
-            set { this.matrix = value; }
+            get { return this.matrix; }            
         }
 
         #endregion
@@ -92,10 +94,12 @@ namespace Labyrinth
 
         private void IsFinished()
         {
-            if (this.matrix.MyPositionHorizontal == 0 ||
-                this.matrix.MyPositionHorizontal == 6 ||
-                this.matrix.MyPositionVertical == 0 ||
-                this.matrix.MyPositionVertical == 6)
+            int currentHorizontalPos = this.matrix.MyPositionHorizontal;
+            bool validHorizontalEnd = (currentHorizontalPos == 0) || (currentHorizontalPos == this.MatrixMaxPosition);
+            int currentVerticalPos = this.matrix.MyPositionVertical;
+            bool validVerticalEnd = (currentVerticalPos == 0) || (currentVerticalPos == this.MatrixMaxPosition);
+
+            if (validHorizontalEnd || validVerticalEnd)
             {
                 LabyrinthInputOutput.PrintVictoryMessage(this.moveCount.ToString());
                 this.scoreboard.HandleScoreboard(this.moveCount);
@@ -162,8 +166,8 @@ namespace Labyrinth
         
         private bool IsAvailable(int leftAddition, int rightAddition)
         {
-            return this.matrix.Matrix[this.matrix.MyPositionHorizontal + leftAddition]
-                [this.matrix.MyPositionVertical + rightAddition] == LabyrinthMatrix.EmptyCell;
+            var nextPosition = this.matrix.Matrix[this.matrix.MyPositionHorizontal + leftAddition][this.matrix.MyPositionVertical + rightAddition];
+            return nextPosition == LabyrinthMatrix.EmptyCell;
         }
 
         #endregion
