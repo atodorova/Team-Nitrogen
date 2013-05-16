@@ -9,7 +9,7 @@ namespace LabyrinthTests
     {
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void HandleInput_IsValedCommandW()
+        public void HandleInput_IsValidCommandW()
         {
             string input = "w";
             LabyrinthEngine engine = new LabyrinthEngine();
@@ -18,7 +18,7 @@ namespace LabyrinthTests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void HandleInput_IsValedCommandLR()
+        public void HandleInput_IsValidCommandLR()
         {
             string input = "lr";
             LabyrinthEngine engine = new LabyrinthEngine();
@@ -27,7 +27,7 @@ namespace LabyrinthTests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void HandleInput_IsValedCommandStart()
+        public void HandleInput_IsValidCommandStart()
         {
             string input = "start";
             LabyrinthEngine engine = new LabyrinthEngine();
@@ -36,7 +36,7 @@ namespace LabyrinthTests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void HandleInput_IsValedCommandAt()
+        public void HandleInput_IsValidCommandAt()
         {
             string input = "@";
             LabyrinthEngine engine = new LabyrinthEngine();

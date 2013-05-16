@@ -12,7 +12,7 @@ namespace LabyrinthTests
         public void MyPositionHorisontal_ValueUnder0()
         {
             LabyrinthMatrix matrix = new LabyrinthMatrix();
-            matrix.MyPositionHorizontal = matrix.MyPositionHorizontal - 7;
+            matrix.PositionHorizontal = matrix.PositionHorizontal - 7;
         }
 
         [TestMethod]
@@ -20,7 +20,7 @@ namespace LabyrinthTests
         public void MyPositionVertical_ValueUnder0()
         {
             LabyrinthMatrix matrix = new LabyrinthMatrix();
-            matrix.MyPositionVertical = matrix.MyPositionVertical - 7;
+            matrix.PositionVertical = matrix.PositionVertical - 7;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Labyrinth
     using System.Linq;    
 
     /// <summary>
-    /// TODO: Update summary.
+    /// Class for printing game elements and messages to the console
     /// </summary>
     public static class LabyrinthInputOutput
     {
@@ -62,7 +62,7 @@ namespace Labyrinth
                 Console.Write("\t");
                 for (int j = 0; j < matrix.Matrix[i].Length; j++)
                 {
-                    if (i == matrix.MyPositionVertical && j == matrix.MyPositionHorizontal)
+                    if (i == matrix.PositionVertical && j == matrix.PositionHorizontal)
                     {
                         Console.ForegroundColor = ConsoleColor.Blue;
                         Console.Write("*");

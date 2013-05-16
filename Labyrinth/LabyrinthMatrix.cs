@@ -13,15 +13,15 @@ namespace Labyrinth
         private readonly bool[,] checkedCells;
         private readonly Random randomGenerator;
         private char[][] matrix;
-        private int myPositionVertical;
-        private int myPositionHorizontal;
+        private int positionVertical;
+        private int positionHorizontal;
         
         public LabyrinthMatrix()
         {
             this.randomGenerator = new Random();
             this.checkedCells = new bool[MatrixSize, MatrixSize];
-            this.MyPositionHorizontal = CenterX;
-            this.MyPositionVertical = CenterY;
+            this.PositionHorizontal = CenterX;
+            this.PositionVertical = CenterY;
             this.GenerateMatrix();
         }
 
@@ -33,37 +33,37 @@ namespace Labyrinth
             }
         }
 
-        public int MyPositionHorizontal
+        public int PositionHorizontal
         {
             get
             {
-                return this.myPositionHorizontal;
+                return this.positionHorizontal;
             }
 
             set
             {
                 if (value < 0)
                 {
-                    throw new ArgumentOutOfRangeException("myPositionHorizontal", "The position cannot be a negative number");
+                    throw new ArgumentOutOfRangeException("positionHorizontal", "The position cannot be a negative number");
                 }
-                this.myPositionHorizontal = value;
+                this.positionHorizontal = value;
             }
         }
 
-        public int MyPositionVertical
+        public int PositionVertical
         {
             get
             {
-                return this.myPositionVertical;
+                return this.positionVertical;
             }
 
             set
             {
                 if (value < 0)
                 {
-                    throw new ArgumentOutOfRangeException("myPositionVertical", "The position cannot be a negative number");
+                    throw new ArgumentOutOfRangeException("positionVertical", "The position cannot be a negative number");
                 }
-                this.myPositionVertical = value;
+                this.positionVertical = value;
             }
         }
 
@@ -100,14 +100,14 @@ namespace Labyrinth
             {
                 for (int j = 0; j < MatrixSize; j++)
                 {
-                    this.matrix[i][j] = this.GetRandomSymbol();
+                    this.matrix[i][j] = this.GetPredefinedSymbol();
                 }
             }
 
             this.matrix[CenterX][CenterY] = EmptyCell;
         }
 
-        private char GetRandomSymbol() 
+        private char GetPredefinedSymbol() 
         {
             int randomNumber = this.randomGenerator.Next(0, 2);
             if (randomNumber == 1)
