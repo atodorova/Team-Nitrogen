@@ -1,4 +1,5 @@
 ﻿using System;
+using Labyrinth;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LabyrinthTests
@@ -9,6 +10,7 @@ namespace LabyrinthTests
         [TestMethod]
         public void TestMethod1()
         {
+
         }
     }
 }

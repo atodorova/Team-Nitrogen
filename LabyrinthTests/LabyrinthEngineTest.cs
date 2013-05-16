@@ -42,5 +42,24 @@ namespace LabyrinthTests
             LabyrinthEngine engine = new LabyrinthEngine();
             engine.HandleInput(input);
         }
+
+        [TestMethod]
+        public void HandleInput_IsValidCommandExit()
+        {
+            var currentConsoleOut = Console.Out;
+
+            LabyrinthEngine engine = new LabyrinthEngine();
+
+            string message = "Good Bye!";
+
+            using (var consoleOutput = new ConsoleOutput())
+            {
+                engine.HandleInput(message);
+
+                Assert.AreEqual(message, consoleOutput.GetOuput());
+            }
+
+            Assert.AreEqual(currentConsoleOut, Console.Out);
+        }
     }
 }
