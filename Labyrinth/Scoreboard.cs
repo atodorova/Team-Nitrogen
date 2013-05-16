@@ -7,11 +7,8 @@ namespace Labyrinth
 {
     public class Scoreboard
     {
-        #region Fields
-
+        public const int TopPlayersToShow = 5;
         private readonly List<Tuple<uint, string>> scoreboard;
-
-        #endregion
 
         public Scoreboard()
         {
@@ -28,19 +25,19 @@ namespace Labyrinth
 
         public void HandleScoreboard(uint moveCount)
         {
-            if (this.scoreboard.Count() >= 5 && moveCount > this.scoreboard.Last().Item1)
+            if (this.scoreboard.Count() >= TopPlayersToShow && moveCount > this.scoreboard.Last().Item1)
             {
                 Console.WriteLine("Your not good enough for the scoreboard :)");
                 return;
             }
 
             if (this.scoreboard.Count == 0 ||
-                (this.scoreboard.Count < 5 && this.scoreboard.Last().Item1 < moveCount))
+                (this.scoreboard.Count < TopPlayersToShow && this.scoreboard.Last().Item1 < moveCount))
             {
                 Console.Write("Please enter your name for the top scoreboard: ");
                 string nickname = Console.ReadLine();
                 this.scoreboard.Add(new Tuple<uint, string>(moveCount, nickname));
-                Console.WriteLine(this.ToString());
+                Console.WriteLine(this);
                 return;
             }
 
@@ -51,12 +48,12 @@ namespace Labyrinth
                     Console.Write("Please enter your name for the top scoreboard: ");
                     string nickname = Console.ReadLine();
                     this.scoreboard.Insert(i, new Tuple<uint, string>(moveCount, nickname));
-                    if (this.scoreboard.Count > 5)
+                    if (this.scoreboard.Count > TopPlayersToShow)
                     {
                         this.scoreboard.Remove(this.scoreboard.Last());
                     }
 
-                    Console.WriteLine(this.ToString());
+                    Console.WriteLine(this);
                     break;
                 }
             }
@@ -64,19 +61,19 @@ namespace Labyrinth
 
         public override string ToString()
         {
-            StringBuilder toString = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             if (this.scoreboard.Count == 0)
             {
-                toString.AppendLine("The scoreboard is empty.");
+                sb.AppendLine("The scoreboard is empty.");
             }
             
             for (int i = 0; i < this.scoreboard.Count; i++)
             {
-                toString.AppendLine((i + 1).ToString() + ". " + this.scoreboard[i].Item2 + " --> " + 
-                this.scoreboard[i].Item1.ToString() + " moves.");
+                sb.AppendFormat("{0}. {1} --> {2} moves.", (i + 1), this.scoreboard[i].Item2, this.scoreboard[i].Item1);
+                sb.AppendLine();
             }
 
-            return toString.ToString();
+            return sb.ToString();
         }
     }
 }

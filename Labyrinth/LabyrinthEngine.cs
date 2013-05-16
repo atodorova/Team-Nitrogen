@@ -118,7 +118,7 @@ namespace Labyrinth
 
         private bool MoveDown()
         {
-            if (this.matrix.MyPositionVertical != 6 && this.IsAvailable(0, 1))
+            if (this.matrix.MyPositionVertical != this.MatrixMaxPosition && this.IsAvailable(0, 1))
             {
                 this.matrix.MyPositionVertical++;
                 this.moveCount++;
@@ -142,7 +142,7 @@ namespace Labyrinth
 
         private bool MoveRight()
         {
-            if (this.matrix.MyPositionHorizontal != 6 && this.IsAvailable(1, 0))
+            if (this.matrix.MyPositionHorizontal != this.MatrixMaxPosition && this.IsAvailable(1, 0))
             {
                 this.matrix.MyPositionHorizontal++;
                 this.moveCount++;
