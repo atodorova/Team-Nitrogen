@@ -49,5 +49,13 @@ namespace LabyrinthTests
             string expectedResult = "The scoreboard is empty.\r\n";
             Assert.AreEqual(result, expectedResult);
         }
+
+        [TestMethod]
+        public void Scoreboard_get_list()
+        {
+            Scoreboard sb = new Scoreboard();
+            string result = sb.HandleScoreboard(7, "Gosho");
+            Assert.AreEqual("Gosho", sb.ScoreboardList[0].Item2);
+        }
     }
 }
