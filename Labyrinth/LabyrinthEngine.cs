@@ -20,14 +20,8 @@ namespace Labyrinth
         public LabyrinthEngine()
         {
             this.scoreboard = new Scoreboard();
-            this.Restart();
-            this.matrix = new LabyrinthMatrix();
-            while (!this.matrix.IsCorrect())
-            {
-                this.matrix = new LabyrinthMatrix();
-            }
-
             this.matrixMaxPosition = LabyrinthMatrix.MatrixSize - 1;
+            this.Restart();            
         }
 
         #region Properties
@@ -113,6 +107,11 @@ namespace Labyrinth
             LabyrinthInputOutput.PrintWelcomeMessage();
             this.matrix = new LabyrinthMatrix();
             this.moveCount = 0;
+
+            while (!this.matrix.IsCorrect())
+            {
+                this.matrix = new LabyrinthMatrix();
+            }           
         }
 
         #region Move Methods
