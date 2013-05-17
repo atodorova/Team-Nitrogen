@@ -33,6 +33,28 @@ namespace Labyrinth
 
         #endregion
 
+        public LabyrinthMatrix LabyrinthMatrix
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
+        public Scoreboard Scoreboard
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
         /// <summary>
         /// Handles all possible correct inputs. If input is not correct throws exception.
         /// </summary>
