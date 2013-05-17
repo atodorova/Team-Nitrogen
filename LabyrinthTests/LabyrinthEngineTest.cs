@@ -53,7 +53,7 @@ namespace LabyrinthTests
 
             string message = "Good Bye!\r\n";
 
-            using (var consoleOutput = new ConsoleOutput())
+            using (var consoleOutput = new ConsoleOutputTestHelper())
             {
                 engine.HandleInput(message);
 
