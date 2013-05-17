@@ -51,7 +51,7 @@ namespace LabyrinthTests
         }
 
         [TestMethod]
-        public void Scoreboard_get_list()
+        public void Scoreboard_Getlist()
         {
             Scoreboard sb = new Scoreboard();
             string result = sb.HandleScoreboard(7, "Gosho");
