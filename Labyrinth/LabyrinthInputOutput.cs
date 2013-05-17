@@ -28,6 +28,10 @@ namespace Labyrinth
 
         public static void PrintVictoryMessage(string moveCount)
         {
+            if (moveCount.Substring(0, 1) == "0" || moveCount.Substring(0, 1) == "-")
+            {
+                throw new ArgumentOutOfRangeException("Count must be positive number!");
+            }
             Console.WriteLine("Congratulations! You escaped in " + moveCount + " moves.");
         }
 

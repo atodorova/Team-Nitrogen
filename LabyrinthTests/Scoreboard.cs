@@ -1,14 +1,17 @@
 ﻿using System;
+using Labyrinth;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LabyrinthTests
 {
     [TestClass]
-    public class LabyrinthGameTest
+    public class Scoreboard
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Scoreboard_ToString()
         {
+            Scoreboard sb = new Scoreboard();
+            sb.ToString();
         }
     }
 }

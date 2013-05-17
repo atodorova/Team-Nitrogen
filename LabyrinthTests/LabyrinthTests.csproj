@@ -53,9 +53,9 @@
     <Compile Include="ConsoleOutputTestHelper.cs" />
     <Compile Include="LabyrinthEngineTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="LabyrinthGameTest.cs" />
     <Compile Include="LabyrinthInputOutputTest.cs" />
     <Compile Include="LabyrinthMatrixTest.cs" />
+    <Compile Include="Scoreboard.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Labyrinth\Labyrinth.csproj">
