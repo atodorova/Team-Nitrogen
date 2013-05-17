@@ -30,40 +30,36 @@ namespace Labyrinth
         /// Adds final scores to the scoreboard after each successful game and prints the results to the console
         /// </summary>
         /// <param name="moveCount">total moves used to finish the game</param>
-        public void HandleScoreboard(uint moveCount)
+        public string HandleScoreboard(uint moveCount, string nickname)
         {
+            StringBuilder sb = new StringBuilder();
             if (this.scoreboard.Count() >= TopPlayersToShow && moveCount > this.scoreboard.Last().Item1)
             {
-                Console.WriteLine("Your not good enough for the scoreboard :)");
-                return;
+                return "Your not good enough for the scoreboard :)\r\n";     
             }
 
             if (this.scoreboard.Count == 0 ||
                 (this.scoreboard.Count < TopPlayersToShow && this.scoreboard.Last().Item1 < moveCount))
             {
-                Console.Write("Please enter your name for the top scoreboard: ");
-                string nickname = Console.ReadLine();
                 this.scoreboard.Add(new Tuple<uint, string>(moveCount, nickname));
-                Console.WriteLine(this);
-                return;
+                return this.ToString();
             }
 
             for (int i = 0; i < this.scoreboard.Count(); ++i)
             {
                 if (moveCount <= this.scoreboard[i].Item1)
                 {
-                    Console.Write("Please enter your name for the top scoreboard: ");
-                    string nickname = Console.ReadLine();
                     this.scoreboard.Insert(i, new Tuple<uint, string>(moveCount, nickname));
                     if (this.scoreboard.Count > TopPlayersToShow)
                     {
                         this.scoreboard.Remove(this.scoreboard.Last());
                     }
 
-                    Console.WriteLine(this);
-                    break;
+                    return this.ToString();
                 }
             }
+
+            return string.Empty;
         }
 
         /// <summary>

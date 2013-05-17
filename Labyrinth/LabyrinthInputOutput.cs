@@ -50,6 +50,13 @@ namespace Labyrinth
             "R, L, U, D, Restart, Top, Exit");
         }
 
+        public static string GetNameForScoreboard()
+        {
+            Console.Write("Please enter your name for the top scoreboard: ");
+            string nickname = Console.ReadLine();
+            return nickname;
+        }
+
         /// <summary>
         /// Prints the generated game field to the console, using build-in console settings
         /// </summary>        

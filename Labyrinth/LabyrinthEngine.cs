@@ -103,7 +103,7 @@ namespace Labyrinth
             if (validHorizontalEnd || validVerticalEnd)
             {
                 LabyrinthInputOutput.PrintVictoryMessage(this.moveCount.ToString());
-                this.scoreboard.HandleScoreboard(this.moveCount);
+                Console.WriteLine(this.scoreboard.HandleScoreboard(this.moveCount, LabyrinthInputOutput.GetNameForScoreboard()));
                 this.Restart();
             }
         }
