@@ -32,7 +32,7 @@ namespace Labyrinth
         /// <param name="moveCount">total moves used to finish the game</param>
         public string HandleScoreboard(uint moveCount, string nickname)
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder scoreboard = new StringBuilder();
             if (this.scoreboard.Count() >= TopPlayersToShow && moveCount > this.scoreboard.Last().Item1)
             {
                 return "Your not good enough for the scoreboard :)\r\n";     

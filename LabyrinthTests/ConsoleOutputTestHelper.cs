@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace LabyrinthTests
 {
-    public class ConsoleOutput : IDisposable
+    public class ConsoleOutputTestHelper : IDisposable
     {
-        private StringWriter stringWriter;
-        private TextWriter originalOutput;
+        private readonly StringWriter stringWriter;
+        private readonly TextWriter originalOutput;
  
-        public ConsoleOutput()
+        public ConsoleOutputTestHelper()
         {
             stringWriter = new StringWriter();
             originalOutput = Console.Out;

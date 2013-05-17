@@ -14,7 +14,7 @@ namespace LabyrinthTests
 
             string message = "Good Bye!\r\n";
 
-            using (var consoleOutput = new ConsoleOutput())
+            using (var consoleOutput = new ConsoleOutputTestHelper())
             {
                 LabyrinthInputOutput.PrintExitMessage();
 
@@ -31,7 +31,7 @@ namespace LabyrinthTests
 
             string message = "Invalid move! You cannot move in that direction!\r\n";
 
-            using (var consoleOutput = new ConsoleOutput())
+            using (var consoleOutput = new ConsoleOutputTestHelper())
             {
                 LabyrinthInputOutput.PrintInvalidMoveMessage();
 
@@ -48,7 +48,7 @@ namespace LabyrinthTests
 
             string message = "\nWelcome to “Labirinth” game. Please try to escape. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.\r\n";
 
-            using (var consoleOutput = new ConsoleOutput())
+            using (var consoleOutput = new ConsoleOutputTestHelper())
             {
                 LabyrinthInputOutput.PrintWelcomeMessage();
 
@@ -65,7 +65,7 @@ namespace LabyrinthTests
 
             string message = "Enter your move (L=left, R-right, U=up, D=down): \r\n";
 
-            using (var consoleOutput = new ConsoleOutput())
+            using (var consoleOutput = new ConsoleOutputTestHelper())
             {
                 LabyrinthInputOutput.PrintInputMessage();
 
@@ -83,7 +83,7 @@ namespace LabyrinthTests
             string message = "You entered invalid command! Please, choose one of the below:\n" + 
             "R, L, U, D, Restart, Top, Exit\r\n";
 
-            using (var consoleOutput = new ConsoleOutput())
+            using (var consoleOutput = new ConsoleOutputTestHelper())
             {
                 LabyrinthInputOutput.PrintInvalidCommandMessage();
 
@@ -100,7 +100,7 @@ namespace LabyrinthTests
 
             string message = "Congratulations! You escaped in " + "6" + " moves.\r\n";
 
-            using (var consoleOutput = new ConsoleOutput())
+            using (var consoleOutput = new ConsoleOutputTestHelper())
             {
                 LabyrinthInputOutput.PrintVictoryMessage("6");
 
@@ -118,7 +118,7 @@ namespace LabyrinthTests
 
             string message = "Congratulations! You escaped in " + "0" + " moves.\r\n";
 
-            using (var consoleOutput = new ConsoleOutput())
+            using (var consoleOutput = new ConsoleOutputTestHelper())
             {
                 LabyrinthInputOutput.PrintVictoryMessage("0");
 
@@ -136,7 +136,7 @@ namespace LabyrinthTests
 
             string message = "Congratulations! You escaped in " + "-6" + " moves.\r\n";
 
-            using (var consoleOutput = new ConsoleOutput())
+            using (var consoleOutput = new ConsoleOutputTestHelper())
             {
                 LabyrinthInputOutput.PrintVictoryMessage("-6");
 
