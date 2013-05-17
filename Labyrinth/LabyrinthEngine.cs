@@ -23,7 +23,7 @@ namespace Labyrinth
             this.matrixMaxPosition = LabyrinthMatrix.MatrixSize - 1;
             this.Restart();            
         }
-
+        
         #region Properties
 
         public LabyrinthMatrix Matrix
