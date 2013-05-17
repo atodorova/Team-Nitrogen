@@ -21,9 +21,7 @@ namespace Labyrinth
 
         public static void PrintInvalidMoveMessage()
         {
-
-            Console.WriteLine("Invalid move! You cannot move in that direction!");
-            
+            Console.WriteLine("Invalid move! You cannot move in that direction!"); 
         }
 
         public static void PrintVictoryMessage(string moveCount)
@@ -32,6 +30,7 @@ namespace Labyrinth
             {
                 throw new ArgumentOutOfRangeException("Count must be positive number!");
             }
+
             Console.WriteLine("Congratulations! You escaped in " + moveCount + " moves.");
         }
 
@@ -47,10 +46,8 @@ namespace Labyrinth
 
         public static void PrintInvalidCommandMessage()
         {
-
             Console.WriteLine("You entered invalid command! Please, choose one of the below:\n" + 
             "R, L, U, D, Restart, Top, Exit");
-            
         }
 
         /// <summary>

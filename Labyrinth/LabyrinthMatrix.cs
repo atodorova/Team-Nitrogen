@@ -3,6 +3,9 @@ using System.Linq;
 
 namespace Labyrinth
 {
+    /// <summary>
+    /// Keeps the state of the Labyrinth's cells and the current player's position.
+    /// </summary>
     public class LabyrinthMatrix
     {
         public const int CenterX = 3;
@@ -46,6 +49,7 @@ namespace Labyrinth
                 {
                     throw new ArgumentOutOfRangeException("positionHorizontal", "The position cannot be a negative number");
                 }
+
                 this.positionHorizontal = value;
             }
         }
@@ -63,6 +67,7 @@ namespace Labyrinth
                 {
                     throw new ArgumentOutOfRangeException("positionVertical", "The position cannot be a negative number");
                 }
+
                 this.positionVertical = value;
             }
         }
@@ -85,8 +90,7 @@ namespace Labyrinth
             this.checkedCells[row, col] = true;
             return this.IsCorrect(row - 1, col) || this.IsCorrect(row, col - 1) || this.IsCorrect(row, col + 1)
                 || this.IsCorrect(row + 1, col);
-        }    
-                               
+        }                           
 
         private void GenerateMatrix()
         {

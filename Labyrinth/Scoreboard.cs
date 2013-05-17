@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Labyrinth
 {
+    /// <summary>
+    /// Keeps first five players with maximal score, checks if there is a better score and prints the result
+    /// </summary>
     public class Scoreboard
     {
         public const int TopPlayersToShow = 5;
@@ -24,7 +27,7 @@ namespace Labyrinth
         }
 
         /// <summary>
-        /// Adds final scores to the coreboard after each successfull game and prints the results to the console
+        /// Adds final scores to the scoreboard after each successful game and prints the results to the console
         /// </summary>
         /// <param name="moveCount">total moves used to finish the game</param>
         public void HandleScoreboard(uint moveCount)
@@ -63,6 +66,10 @@ namespace Labyrinth
             }
         }
 
+        /// <summary>
+        /// Common ToString method
+        /// </summary>
+        /// <returns>Players with maximal score(minimal moves count)</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -73,7 +80,7 @@ namespace Labyrinth
             
             for (int i = 0; i < this.scoreboard.Count; i++)
             {
-                sb.AppendFormat("{0}. {1} --> {2} moves.", (i + 1), this.scoreboard[i].Item2, this.scoreboard[i].Item1);
+                sb.AppendFormat("{0}. {1} --> {2} moves.", i + 1, this.scoreboard[i].Item2, this.scoreboard[i].Item1);
                 sb.AppendLine();
             }
 

@@ -26,6 +26,7 @@ namespace Labyrinth
             {
                 this.matrix = new LabyrinthMatrix();
             }
+
             this.matrixMaxPosition = LabyrinthMatrix.MatrixSize - 1;
         }
 
@@ -41,7 +42,7 @@ namespace Labyrinth
         /// <summary>
         /// Handles all possible correct inputs. If input is not correct throws exception.
         /// </summary>
-        /// <param name="input">Command, used for controling the game.</param>
+        /// <param name="input">Command, used for controlling the game.</param>
         public void HandleInput(string input)
         {
             string lowerInput = input.ToLower();
@@ -91,7 +92,6 @@ namespace Labyrinth
 
             this.IsFinished();
         }
-
         //Private methods
         private void IsFinished()
         {
